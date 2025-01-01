@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'header.css' %}">
+
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-size: 12px; /* Smaller text size */
+            -webkit-font-smoothing: antialiased; /* Smoother text */
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .a4-container {
+            width: 210mm;
+            height: 297mm;
+            max-width: 100%;
+            margin: auto;
+            padding: 20px;
+            background: url(/static/procard2.jpg) no-repeat center center;
+            background-size:cover; /* Ensure the background image covers the whole container */
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        h3 {
+            color: darkblue;
+            font-size: 14px; /* Adjust heading size */
+            text-align: center;
+        }
+
+        .date {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 20px;
+            border-bottom: black solid 2px;
+        }
+
+        .inform {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: black solid 2px;
+        }
+
+        .detail {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: black solid 2px;
+        }
+
+        .inform div,
+        .detail div {
+            flex: 1;
+            min-width: 200px;
+            margin-top: 10px; /* Adjust margin */
+        }
+
+        .main hr {
+            margin: 20px 0;
+        }
+
+        /* Print Styles */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            .a4-container,
+            .a4-container * {
+                visibility: visible;
+            }
+
+            .a4-container {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 210mm;
+                height: 297mm;
+                overflow: hidden;
+                page-break-after: always;
+            }
+        }
+
+        @media print {
+            .print-button {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a4-container">
+        <h2 style="text-align: right;"> Download Profile</h2>
+        <div class="main">
+            <div class="date">
+                <p><b>Date and time:</b></p>
+                <p id="currentDateTime"></p>
+            </div>
+            <h3>Basic Information</h3><br>
+            <div class="inform">
+                <div>
+                    <p><b>Registration No:</b>&nbsp; {{ patient.Register_id }}</p>
+                    <p><b>Patient Name:</b>&nbsp; {{ patient.First_name }} {{ patient.Last_name }}</p>
+                    <p><b>Date Of Birth :</b>&nbsp; {{ patient.Date_of_birth }}</p>
+                    <p><b>Mobile no:</b>&nbsp; {{ patient.Mobile_no }}</p>
+                    <p><b>Address:</b>&nbsp; {{ patient.Address }}</p>
+                    <p><b>City :</b>&nbsp; {{ patient.City }}</p>
+                    <p><b>Country :</b>&nbsp; {{ patient.Country }}</p>
+                    <p><b>Blood Group :</b>&nbsp; {{ patient.Blood_group }}</p>
+                </div>
+                <div>
+                    <p><b>Rec No :</b>&nbsp; {{ patient.Record_no }}</p>
+                    <p><b>Gender:</b>&nbsp; {{ patient.Gender }}</p>
+                    <p><b>Age :</b>&nbsp; {{ patient.Age }}</p>
+                    <p><b>Email:</b>&nbsp; {{ patient.Email }}</p>
+                    <p><b>Locality</b>&nbsp; {{ patient.Locality }}</p>
+                    <p><b>State :</b>&nbsp; {{ patient.State }}</p>
+                    <p><b>Zip code :</b>&nbsp; {{ patient.zip_code }}</p>
+                    <p><b>Medical History :</b>&nbsp; {{ patient.Medical_history }}</p>
+                </div>
+            </div>
+            <h3>Medical History</h3><br>
+
+            <div class="detail"><br>
+                <div>
+                    <p><b>Medical Condition :</b>&nbsp; {{ patient.Medical_condititon }}</p>
+                    <p><b>Patient Remark :</b>&nbsp; {{ patient.Paitient_remark }}</p>
+                </div>
+                <div>
+                    <p><b>Medical Group :</b>&nbsp; {{ patient.Paitient_group }}</p>
+                </div>
+            </div>
+            <h3>Other Info</h3>
+            <div class="detail"><br>
+                <div>
+                    <p><b>Doctor :</b>&nbsp; {{ patient.Doctor }}</p>
+                    <p><b>Referred By :</b>&nbsp; {{ patient.Referred_by }}</p>
+                </div>
+                <div>
+                    <p><b>Occupation</b>&nbsp; {{ patient.Occupation }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 text-center print-button">
+        <button class="btn btn-primary" onclick="printInvoice()">Print</button>
+    </div>
+
+    <script>
+        // Function to get and format the current date and time
+        function displayCurrentDateTime() {
+            let currentDate = new Date();
+
+            // Get the individual components of the date and time
+            let year = currentDate.getFullYear();
+            let month = currentDate.getMonth() + 1; // Months are zero-based, so add 1
+            let day = currentDate.getDate();
+            let hours = currentDate.getHours();
+            let minutes = currentDate.getMinutes();
+            let seconds = currentDate.getSeconds();
+
+            // Format the date and time as YYYY-MM-DD HH:MM:SS
+            let formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+            let formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            let formattedDateTime = `${formattedDate} ${formattedTime}`;
+
+            // Display the date and time in the HTML element with id="currentDateTime"
+            document.getElementById('currentDateTime').textContent = formattedDateTime;
+        }
+
+        // Function to update the date and time every second
+        function startClock() {
+            displayCurrentDateTime();
+            setInterval(displayCurrentDateTime, 1000);
+        }
+
+        // Call the function to start the clock when the page loads
+        window.onload = startClock;
+        // Call the function to print the invoice when the print button is clicked
+        function printInvoice() {
+            window.print();
+        }
+    </script>
+</body>
+
+</html>

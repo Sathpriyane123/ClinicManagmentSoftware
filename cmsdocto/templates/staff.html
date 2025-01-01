@@ -1,0 +1,302 @@
+{% extends "home.html" %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Pacifico&family=Poppins:wght@300&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'header.css' %}">
+
+    <style>
+        button {
+            position: relative;
+            bottom: 5px;
+        }
+
+        .container {
+            position: relative;
+            top: 50px;
+            left: 50px;
+            background-color: white;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: fit-content;
+
+        }
+
+        #main1 {
+            background-color: white;
+            padding: 30px;
+            border-radius: .5rem;
+        }
+
+        .options {
+            display: flex;
+            gap: 10px;
+            position: relative;
+            left: 20px;
+        }
+
+        table {
+            position: relative;
+            left: 20px;
+        }
+
+        .btn {
+            position: relative;
+            left: 10px;
+        }
+
+        .search {
+            position: relative;
+            padding-left: 985px;
+        }
+
+        .xyz {
+            position: relative;
+            display: flex;
+            gap: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: .5rem;
+            width: fit-content;
+
+        }
+
+        #main2 {
+            background-color: white;
+            padding: 30px;
+            border-radius: .5rem;
+            width: fit-content;
+
+        }
+
+        input,
+        select {
+            width: 270px;
+            height: 40px;
+            position: relative;
+        }
+
+        .hidden {
+            display: none;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        
+            <div class="row">
+                <div class="col-sm-6 mb-2 mb-sm-0">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title"><b>ACTIVATE</b> &nbsp;<i class="fa-solid fa-user-nurse" style="color: #0fd956;"></i></h5>
+                      <p>10</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title"><b>INACTIVATE</b>  &nbsp;<i class="fa-solid fa-user-nurse" style="color: #d91c1c;"></i></h5>
+                      <p>5</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+           
+        <h5>Staffs</h5>
+        <div class="main" id="main1">
+            <div class="options">
+                <p><b>show</b></p>
+                <select name="" id="" style="height: 30px; width:50px;">
+                    <option value="">10</option>
+                    <option value="">15</option>
+                    <option value="">20</option>
+                </select>
+                <p><b>Entries</b></p>
+            </div>
+            <button id="addAppointmentBtn" class="btn btn-primary"
+                style="position: relative;left: 980px; bottom: 20px;">Add New</button>
+
+                <div>
+                    <input type="search" placeholder="Search" style="position: relative; left: 950px;">
+                </div>
+    
+                <br>
+            <table class="table table-bordered" style="width:1200px;">
+                <thead>
+                    <tr>
+                        <th scope="col"><i class="fa-solid fa-chart-simple" style="color: #141415;"></i>&nbsp;<br>Action
+                        </th>
+                        <th scope="col"><i class="fa-solid fa-chart-simple" style="color: #141415;"></i><br>Name
+                        </th>
+                        <th scope="col"><i class="fa-solid fa-chart-simple" style="color: #141415;"></i><br>Contact
+                        </th>
+                        <th><i class="fa-solid fa-chart-simple" style="color: #141415;"></i><br>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in staff  %}
+                    <tr>
+                        <td><a href="{% url 'delete20' id=i.id %}"><button class="btn btn btn-sm"><i class="fa-solid fa-trash"></i></button></a></td>
+                            </td>
+                            <td>{{i.First_name}} {{i.Last_name}}<br>{{i.Staffid}}<br>{{i.Staf_role}}</td>
+                            <td>{{i.Email}}<br>{{i.Phone}}<br>{{i.Address}}</td>
+                            <td>{{i.Staf_role}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation example" style=" position: relative;padding-left: 85%;">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next >></a></li>
+                </ul>
+            </nav>
+
+        </div>
+        <div id="popupContainer" class="main hidden" id="main2"><br>
+            <h5>Add New Staff</h5>
+
+            <form action="addstaff" method="POST" class="container-fluid" style="background-color: white; padding: 10px; border-radius: .5rem;">
+                {% csrf_token %}
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label for="first_name" class="form-label">First Name</label>
+                        <input type="text" name="first_name" id="first_name" class="form-control"
+                            placeholder="First Name">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="last_name" class="form-label">Last Name</label>
+                        <input type="text" name="last_name" id="last_name" class="form-control"
+                            placeholder="Last Name">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select name="gender" id="gender" class="form-select">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="staff_id" class="form-label">Staff ID</label>
+                        <input type="text" name="staff_id" id="staff_id" class="form-control"
+                            placeholder="Staff Id">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="contactno" class="form-label">Contact No</label>
+                        <input type="text" name="contactno" id="contactno" class="form-control"
+                            placeholder="Contact no">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea name="address" id="address" class="form-control" placeholder="Address"></textarea>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="dob" class="form-label">Date of Birth</label>
+                        <input type="date" name="dob" id="dob" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="stafftype" class="form-label">Staff Type</label>
+                        <select name="stafftype" id="stafftype" class="form-select">
+                            <option value="">Select staff type</option>
+                            <option value="Doctor">Doctor</option>
+                            <option value="Staff">Staff</option>
+                            <option value="Therapist">Therapist</option>
+                            <option value="Nurses">Nurses</option>
+                            <option value="Lab Technicians">Lab Technicians</option>
+                            <option value="Front Office/receptionist">Front Office/receptionist</option>
+                            <option value="Admin">Admin</option>
+                            <option value="ICT">ICT</option>
+                            <option value="Nutritionists">Nutritionists</option>
+                            <option value="Orthopedic">Orthopedic</option>
+                            <option value="Health Record">Health Record</option>
+                            <option value="Pharmacist">Pharmacist</option>
+                            <option value="Theater Anaesthetist">Theater Anaesthetist</option>
+                            <option value="Theater Technicians">Theater Technicians</option>
+                            <option value="Radiographer">Radiographer</option>
+                            <option value="Maxillo Facial Surgeon">Maxillo Facial Surgeon</option>
+                            <option value="Oral Medicin">Oral Medicin</option>
+                            <option value="Speech Therapist">Speech Therapist</option>
+                            <option value="Physiotherapist">Physiotherapist</option>
+                            <option value="Occupational Therapist">Occupational Therapist</option>
+                            <option value="Audiologist">Audiologist</option>
+                            <option value="Ophthalmology">Ophthalmology</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="role" class="form-label">Role</label>
+                        <select name="role" id="role" class="form-select">
+                            <option value="">Select Role</option>
+                            <option value="Doctor">Doctor</option>
+                            <option value="Staff">Staff</option>
+                            <option value="Front Office/receptionist">Front Office/receptionist</option>
+                            <option value="Nurses">Nurses</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="doj" class="form-label">Date of Joining</label>
+                        <input type="date" name="doj" id="doj" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" id="password" class="form-control"
+                            placeholder="Password">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="cpassword" class="form-label">Confirm Password</label>
+                        <input type="password" name="cpassword" id="cpassword" class="form-control"
+                            placeholder="Confirm Password">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12 text-end">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("addAppointmentBtn").addEventListener("click", function () {
+            var popup = document.getElementById("popupContainer");
+            if (popup.classList.contains("hidden")) {
+                popup.classList.remove("hidden");
+            } else {
+                popup.classList.add("hidden");
+            }
+        });
+    </script>
+
+</body>
+{% endblock %}
+
+</html>

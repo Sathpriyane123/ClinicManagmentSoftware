@@ -1,0 +1,291 @@
+{% extends "home.html" %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooth Chart</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .tooth:hover {
+            transform: scale(1.2);
+            transition: transform 0.2s;
+        }
+        .selected {
+            border: 2px solid blue;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="bg-light dark:bg-dark text-dark dark:text-light">
+<div class="container p-4">
+    <h1 class="text-2xl font-bold mb-4">Tooth Chart</h1>
+    <div class="form-group form-check mb-4">
+        <label class="form-check-label font-semibold text-lg mr-2" for="selectAllTop">Select All</label>
+        <input type="checkbox" class="form-check-input" id="selectAllTop">
+    </div>
+    <div class="tooth-chart d-flex flex-wrap justify-content-start">
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar18.jpg'%}" style="width: 40px; height: 120px;" alt="18" id="18" class="tooth mb-2">
+            <span>18</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar17.jpg'%}" style="width: 40px; height: 125px;" alt="17" id="17" class="tooth mb-2">
+            <span>17</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar16.jpg'%}" style="width: 40px; height: 125px;" alt="16" id="16" class="tooth mb-2">
+            <span>16</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar15.jpg'%}" style="width: 40px; height: 125px;" alt="15" id="15" class="tooth mb-2">
+            <span>15</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar14.jpg'%}" style="width: 40px; height: 125px;" alt="14" id="14" class="tooth mb-2">
+            <span>14</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar13.jpg'%}" style="width: 40px; height: 125px;" alt="13" id="13" class="tooth mb-2">
+            <span>13</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar12.jpg'%}" style="width: 40px; height: 125px;" alt="12" id="12" class="tooth mb-2">
+            <span>12</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar11.jpg'%}" style="width: 40px; height: 125px;" alt="11" id="11" class="tooth mb-2">
+            <span>11</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar21.jpg'%}" style="width: 40px; height: 125px;" alt="21" id="21" class="tooth mb-2">
+            <span>21</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar22.jpg'%}" style="width: 40px; height: 125px;" alt="22" id="22" class="tooth mb-2">
+            <span>22</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar23.jpg'%}" style="width: 40px; height: 125px;" alt="23" id="23" class="tooth mb-2">
+            <span>23</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar24.jpg'%}" style="width: 40px; height: 125px;" alt="24" id="24" class="tooth mb-2">
+            <span>24</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar25.jpg'%}" style="width: 40px; height: 125px;" alt="25" id="25" class="tooth mb-2">
+            <span>25</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar26.png'%}" style="width: 40px; height: 125px;" alt="26" id="26" class="tooth mb-2">
+            <span>26</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar27.jpg'%}" style="width: 40px; height: 125px;" alt="27" id="27" class="tooth mb-2">
+            <span>27</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar28.jpg'%}" style="width: 40px; height: 125px;" alt="28" id="28" class="tooth mb-2">
+            <span>28</span>
+        </div>
+    </div>
+    
+    <div class="tooth-chart d-flex flex-wrap justify-content-start">
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar48.jpg'%}" style="width: 40px; height: 120px;" alt="18" id="18" class="tooth mb-2">
+            <span>48</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar47.jpg'%}" style="width: 40px; height: 125px;" alt="17" id="17" class="tooth mb-2">
+            <span>47</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar46.jpg'%}" style="width: 40px; height: 125px;" alt="16" id="16" class="tooth mb-2">
+            <span>46</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar45.jpg'%}" style="width: 40px; height: 125px;" alt="15" id="15" class="tooth mb-2">
+            <span>45</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar44.jpg'%}" style="width: 40px; height: 125px;" alt="14" id="14" class="tooth mb-2">
+            <span>44</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar43.jpg'%}" style="width: 40px; height: 125px;" alt="13" id="13" class="tooth mb-2">
+            <span>43</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar42.jpg'%}" style="width: 40px; height: 125px;" alt="12" id="12" class="tooth mb-2">
+            <span>42</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar41.jpg'%}" style="width: 40px; height: 125px;" alt="11" id="11" class="tooth mb-2">
+            <span>41</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar31.jpg'%}" style="width: 40px; height: 125px;" alt="21" id="21" class="tooth mb-2">
+            <span>31</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar32.jpg'%}" style="width: 40px; height: 125px;" alt="22" id="22" class="tooth mb-2">
+            <span>32</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar33.jpg'%}" style="width: 40px; height: 125px;" alt="23" id="23" class="tooth mb-2">
+            <span>33</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar34.jpg'%}" style="width: 40px; height: 125px;" alt="24" id="24" class="tooth mb-2">
+            <span>34</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar35.jpg'%}" style="width: 40px; height: 125px;" alt="25" id="25" class="tooth mb-2">
+            <span>35</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar36.jpg'%}" style="width: 40px; height: 125px;" alt="26" id="26" class="tooth mb-2">
+            <span>36</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar37.jpg'%}" style="width: 40px; height: 125px;" alt="27" id="27" class="tooth mb-2">
+            <span>37</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/permanent_teeth/teethchar38.jpg'%}" style="width: 40px; height: 125px;" alt="28" id="28" class="tooth mb-2">
+            <span>38</span>
+        </div>
+    </div>
+    
+    <div class="form-group form-check mt-4 mb-4">
+        <label class="form-check-label font-semibold text-lg mr-2" for="selectAllBottom">Select All</label>
+        <input type="checkbox" class="form-check-input" id="selectAllBottom">
+    </div>
+    <div class="tooth-chart d-flex flex-wrap justify-content-start">
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar55.png'%}" style="width: 40px; height: 125px;" alt="17" id="17" class="tooth mb-2">
+            <span>55</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar54.png'%}" style="width: 40px; height: 125px;" alt="16" id="16" class="tooth mb-2">
+            <span>54</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar53.png'%}" style="width: 40px; height: 125px;" alt="15" id="15" class="tooth mb-2">
+            <span>53</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar52.png'%}" style="width: 40px; height: 125px;" alt="14" id="14" class="tooth mb-2">
+            <span>52</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar51.png'%}" style="width: 40px; height: 125px;" alt="13" id="13" class="tooth mb-2">
+            <span>51</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar61.png'%}" style="width: 40px; height: 125px;" alt="12" id="12" class="tooth mb-2">
+            <span>61</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar62.png'%}" style="width: 40px; height: 125px;" alt="11" id="11" class="tooth mb-2">
+            <span>62</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar63.png'%}" style="width: 40px; height: 125px;" alt="21" id="21" class="tooth mb-2">
+            <span>63</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar64.png'%}" style="width: 40px; height: 125px;" alt="22" id="22" class="tooth mb-2">
+            <span>64</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar65.png'%}" style="width: 40px; height: 125px;" alt="23" id="23" class="tooth mb-2">
+            <span>65</span>
+        </div>
+    </div>
+
+    <div class="tooth-chart d-flex flex-wrap justify-content-start">
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar85.png'%}" style="width: 40px; height: 125px;" alt="17" id="17" class="tooth mb-2">
+            <span>85</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar84.png'%}" style="width: 40px; height: 125px;" alt="16" id="16" class="tooth mb-2">
+            <span>84</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar83.png'%}" style="width: 40px; height: 125px;" alt="15" id="15" class="tooth mb-2">
+            <span>83</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar82.png'%}" style="width: 40px; height: 125px;" alt="14" id="14" class="tooth mb-2">
+            <span>82</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar81.png'%}" style="width: 40px; height: 125px;" alt="13" id="13" class="tooth mb-2">
+            <span>81</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar71.png'%}" style="width: 40px; height: 125px;" alt="12" id="12" class="tooth mb-2">
+            <span>71</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar72.png'%}" style="width: 40px; height: 125px;" alt="11" id="11" class="tooth mb-2">
+            <span>72</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar73.png'%}" style="width: 40px; height: 125px;" alt="21" id="21" class="tooth mb-2">
+            <span>73</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar74.png'%}" style="width: 40px; height: 125px;" alt="22" id="22" class="tooth mb-2">
+            <span>74</span>
+        </div>
+        <div class="d-flex flex-column align-items-center mx-2">
+            <img src="{% static '/tooth/pedo/teethchar75.png'%}" style="width: 40px; height: 125px;" alt="23" id="23" class="tooth mb-2">
+            <span>75</span>
+        </div>
+    </div>
+    
+
+    <div class="d-flex justify-content-end mt-4">
+        <button class="btn btn-secondary mr-2" id="closeButton">Close</button>
+        <button class="btn btn-primary" id="saveButton">Save</button>
+    </div>
+</div>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const teeth = document.querySelectorAll('.tooth');
+        teeth.forEach(tooth => {
+            tooth.addEventListener('click', () => {
+                tooth.classList.toggle('selected');
+            });
+        });
+
+        document.getElementById('closeButton').addEventListener('click', () => {
+            alert('Close button clicked');
+        });
+
+        document.getElementById('saveButton').addEventListener('click', () => {
+            const selectedTeeth = [];
+            teeth.forEach(tooth => {
+                if (tooth.classList.contains('selected')) {
+                    selectedTeeth.push(tooth.id);
+                }
+            });
+            alert('Selected teeth: ' + selectedTeeth.join(', '));
+        });
+    });
+</script>
+
+{% endblock %}
+</body>
+</html>
