@@ -23,7 +23,7 @@ Clinic Management Software is a web-based application designed to streamline the
 - **JavaScript**: Adding interactivity to the web pages.
 
 ### Database:
-- **SQLite** (default Django database) or **PostgreSQL** (optional).
+- **SQLite** (default Django database) or MysQl (optional).
 
 ### Tools and Libraries:
 - **Django REST Framework**: For building RESTful APIs.
@@ -41,8 +41,8 @@ Clinic Management Software is a web-based application designed to streamline the
 ### Setup Instructions
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-repo/clinic-management-software.git
-   cd clinic-management-software
+   git clone https://github.com/Sathpriyane123/ClinicManagmentSoftware.git
+   cd ClinicManagmentSoftware
    ```
 
 2. **Set up a virtual environment:**
